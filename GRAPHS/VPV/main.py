@@ -51,7 +51,7 @@ pyplot.gca().spines['bottom'].set_position('zero')
 pyplot.title("График зависимости \n $v(p)$ ")
 pyplot.legend((line1, line2, line3), ['P$_{осм} = 22$ кгс/см$^2$', 'P$_{осм} = 14$ кгс/см$^2$',
                                                                   'P$_{осм} = 11$ кгс/см$^2$'])
-# pyplot.savefig('air.png')
+# pyplot.savefig('v(p)')
 pyplot.show()
 
 # x = [float(number) for number in input().split()]

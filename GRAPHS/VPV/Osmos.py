@@ -21,4 +21,4 @@ pyplot.title("График зависимости \n $P_{осм}(C)$ ")
 pyplot.legend((line1,), ['$P_{осм} = k \\cdot C$'])
 
 pyplot.show()
-# pyplot.savefig('air.png')
+# pyplot.savefig('P(C)')
