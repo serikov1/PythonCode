@@ -33,13 +33,12 @@ arr_sum = []
 
 for i in range(len(amplitude_envelope)//5512):
     arr_sum.clear()
-    for j in range(1450, 1450 + len(best) + 30 + 2*i):
+    for j in range(1450, 1450 + len(best) + 20 + i):
         diff = matrix[i][j: 100 + j] - best
         sum = 0
         for elem in diff:
             sum += abs(elem)
         arr_sum.append(sum)
-        # print('1')
     minimum = arr_sum.index(min(arr_sum))
     matrix[i] = np.roll(matrix[i], - minimum - 1450)
 
