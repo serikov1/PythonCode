@@ -2,16 +2,16 @@
 from matplotlib import pyplot
 import numpy
 
-y_1 = [0.54, 0.48, 0.41, 0.34, 0.22, 0.11, -0.06]
-x_1 = [204, 180, 160, 140, 100, 60, 0]
+x_1 = [0.54, 0.48, 0.41, 0.34, 0.22, 0.11, -0.06]
+y_1 = [204, 180, 160, 140, 100, 60, 0]
 er_1 = [0.05, 0.05, 0.04, 0.03, 0.02, 0.02, 0.01]
 
-y_2 = [0.9, 0.77, 0.66, 0.56, 0.37, 0.19, -0.021]
-x_2 = [200, 180, 160, 140, 100, 60, 0]
+x_2 = [0.9, 0.77, 0.66, 0.56, 0.37, 0.19, -0.021]
+y_2 = [200, 180, 160, 140, 100, 60, 0]
 er_2 = [0.1, 0.08, 0.07, 0.06, 0.04, 0.04, 0.006]
 
-y_3 = [1.07, 0.9, 0.79, 0.68, 0.46, 0.24, -0.019]
-x_3 = [200, 180, 160, 140, 100, 60, 0]
+x_3 = [1.07, 0.9, 0.79, 0.68, 0.46, 0.24, -0.019]
+y_3 = [200, 180, 160, 140, 100, 60, 0]
 er_3 = [0.1, 0.1, 0.08, 0.07, 0.05, 0.05, 0.06]
 
 
@@ -19,39 +19,40 @@ coeffs = numpy.polyfit(x_1, y_1, 1)
 k = coeffs[0]
 b = coeffs[1]
 line_points = [k * number + b for number in x_1]
-pyplot.scatter(x_1, y_1, s=7., color='red')
+pyplot.scatter(x_1, y_1, s=7., color='b')
 line1, = pyplot.plot(x_1, line_points, color='b')
-pyplot.errorbar(x_1, y_1, yerr=er_1, fmt='.')
+pyplot.errorbar(x_1, y_1, xerr=er_1, fmt='.')
+print(k)
 print(b)
 
 coeffs = numpy.polyfit(x_2, y_2, 1)
 k = coeffs[0]
 b = coeffs[1]
 line_points = [k * number + b for number in x_2]
-pyplot.scatter(x_2, y_2, s=7., color='red')
+pyplot.scatter(x_2, y_2, s=7., color='g')
 line2, = pyplot.plot(x_2, line_points, color='g')
-pyplot.errorbar(x_2, y_2, yerr=er_2, fmt='.')
+pyplot.errorbar(x_2, y_2, xerr=er_2, fmt='.', color ='g', ecolor='g')
 print(b)
 
 coeffs = numpy.polyfit(x_3, y_3, 1)
 k = coeffs[0]
 b = coeffs[1]
 line_points = [k * number + b for number in x_3]
-pyplot.scatter(x_3, y_3, s=7., color='red')
+pyplot.scatter(x_3, y_3, s=7., color='black')
 line3, = pyplot.plot(x_3, line_points, color='black')
-pyplot.errorbar(x_3, y_3, yerr=er_3, fmt='.')
+pyplot.errorbar(x_3, y_3, xerr=er_3, fmt='.', color='black', ecolor='black')
 print(b)
 
-pyplot.ylabel('$v$')
-pyplot.xlabel('$P$')
-pyplot.ylim(-0.1, 1.2)
-pyplot.xlim(0, 220)
-pyplot.grid()
-pyplot.gca().spines['bottom'].set_position('zero')
-pyplot.title("График зависимости \n $v(p)$ ")
+pyplot.ylabel('$P, кгс/см^2$')
+pyplot.xlabel('$v, мм/с$')
+pyplot.xlim(-0.1, 1.2)
+pyplot.ylim(0, 220)
+pyplot.grid(which='major', linestyle=':', linewidth=0.5)
+pyplot.gca().spines['left'].set_position('zero')
+pyplot.title("График зависимости \n $P(v)$ ")
 pyplot.legend((line1, line2, line3), ['P$_{осм} = 22$ кгс/см$^2$', 'P$_{осм} = 14$ кгс/см$^2$',
-                                                                  'P$_{осм} = 11$ кгс/см$^2$'])
-# pyplot.savefig('v(p)')
+                                                                  'P$_{осм} = 11$ кгс/см$^2$'], loc='lower right')
+pyplot.savefig('P(v)')
 pyplot.show()
 
 # x = [float(number) for number in input().split()]

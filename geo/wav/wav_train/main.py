@@ -5,8 +5,6 @@ import matplotlib.pyplot as plt
 
 
 fs, data = wav.read('signal.wav')
-# Срез для отображения преобразования Гильберта
-# data = data[300 * fs:301 * fs]
 
 data = np.array(data, dtype=float)
 n_data = (data - 128) / 128
@@ -21,7 +19,7 @@ amplitude_envelope = np.abs(analytical_signal)
 # plt.title("Signal")
 # plt.show()
 
-# print(len(amplitude_envelope)//5512)
+
 matrix = []
 for i in range(len(amplitude_envelope)//5512):
     p = amplitude_envelope[i*5512:(i+1)*5512]
@@ -39,9 +37,9 @@ for i in range(len(amplitude_envelope)//5512):
         for elem in diff:
             sum += abs(elem)
         arr_sum.append(sum)
-        # print('1')
     minimum = arr_sum.index(min(arr_sum))
-    matrix[i] = np.roll(matrix[i], - minimum - 1450)
+    matrix[i] = np.roll(matrix[i], - minimum + 1450 - 165)
+
 
 (low, high) = np.percentile(matrix, (0.5, 99.5))
 delta = high - low
@@ -49,11 +47,37 @@ matrix = np.round(255 * (matrix - low) / delta)
 matrix[matrix < 0] = 0
 matrix[matrix > 255] = 255
 
-telemetry = [matrix[645][5460], matrix[652][5460], matrix[660][5460],
-             matrix[667][5460], matrix[667][5460], matrix[677][5460],
-             matrix[685][5460], matrix[692][5460], matrix[701][5460],
-             matrix[708][5460]]
-print(telemetry)
+
+telemetry = [matrix[596][5460],
+             matrix[605][5460],
+             matrix[613][5460],
+             matrix[620][5460]]
+
+T1 = 276.6067 + 0.051111 * telemetry[0] + 1.405783E-06 * telemetry[0]**2
+T2 = 276.6119 + 0.051090 * telemetry[1] + 1.496037E-06 * telemetry[1]**2
+T3 = 276.6311 + 0.051033 * telemetry[2] + 1.496990E-06 * telemetry[2]**2
+T4 = 276.6268 + 0.051058 * telemetry[3] + 1.493110E-06 * telemetry[3]**2
+
+Tbb = (T1 + T2 + T3 + T4)/4
+Tbb_ = 1.67396 + 0.997364 * Tbb
+
+c1 = 1.1910427E-5
+c2 = 1.4387752
+v = 2670
+Nbb = (c1 * v**3) / (np.exp((c2 * v) / Tbb_) - 1)
+
+Ce = matrix[637][4611]
+Cs = matrix[700][2902]
+Cbb = matrix[600][4600]
+Ne = Nbb * (Cs - Ce) / (Cs - Cbb)
+
+Te_ = c2 * v / (np.log(1 + (c1 * v**3)/Ne))
+
+Te = (Te_ - 1.67396) / 0.997364
+print(Te)
+
+
 plt.imshow(matrix, cmap='gray')
 plt.title('Image')
 plt.show()
+
