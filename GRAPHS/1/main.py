@@ -30,6 +30,7 @@ y_7 = [209, 467, 686, 908, 1133, 1358, 1583]
 y_7 = [x - 209 for x in y_7]
 
 coeffs = numpy.polyfit(x_1, y_1, 1)
+print(coeffs)
 k = coeffs[0]
 b = coeffs[1]
 line_points = [k * number + b for number in x_1]
