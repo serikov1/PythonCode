@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b5582b6-ad84-4a3c-8455-bff7773c83ae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lab_3_4_1/.idea/lab_3_4_1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/GRAPHS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GRAPHS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4b5582b6-ad84-4a3c-8455-bff7773c83ae" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,15 +26,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/PHYSTECH/PythonCode/GRAPHS/lab_3_4_1&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/PHYSTECH/PythonCode/GRAPHS"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.second">
     <configuration name="lab 2-4-1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GRAPHS" />
@@ -127,6 +123,7 @@
       <workItem from="1663185471193" duration="1240000" />
       <workItem from="1663219681193" duration="2343000" />
       <workItem from="1663352819926" duration="373000" />
+      <workItem from="1663910986103" duration="89000" />
     </task>
     <servers />
   </component>
